@@ -149,7 +149,11 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
             return;
         }
 
-        Assertion::subclassOf($container->getParameter(self::PROCESS_CLASS), $processClass);
+        try {
+            Assertion::isInstanceOf($container->getParameter(self::PROCESS_CLASS), $processClass);
+        } catch (\InvalidArgumentException $e) {
+            Assertion::subclassOf($container->getParameter(self::PROCESS_CLASS), $processClass);
+        }
     }
 
 
