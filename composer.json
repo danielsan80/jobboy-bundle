@@ -34,7 +34,8 @@
     },
     "autoload": {
         "psr-4": {
-            "JobBoy\\Bundle\\": "src/JobBoy/Bundle/"
+            "JobBoy\\Bundle\\": "src/JobBoy/Bundle/",
+            "JobBoy\\Process\\": "src/JobBoy/Process/"
         }
     },
     "autoload-dev": {
