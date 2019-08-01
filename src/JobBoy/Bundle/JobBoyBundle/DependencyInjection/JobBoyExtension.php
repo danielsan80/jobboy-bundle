@@ -12,6 +12,8 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class JobBoyExtension extends Extension
 {
+    const REDIS_DEFAULT_PORT = 6379;
+
     /**
      * {@inheritDoc}
      */
@@ -51,7 +53,7 @@ class JobBoyExtension extends Extension
             if (isset($config['redis']['port'])) {
                 $container->setParameter('jobboy.process_repository.redis.port', $config['redis']['port']);
             } else {
-                $container->setParameter('jobboy.process_repository.redis.port', RedisUtil::DEFAULT_PORT);
+                $container->setParameter('jobboy.process_repository.redis.port', self::REDIS_DEFAULT_PORT);
             }
         }
     }
