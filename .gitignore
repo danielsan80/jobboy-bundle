@@ -1,0 +1,13 @@
+/.idea
+/.env
+/.env.local
+/.tmp
+/.build
+
+/var/data/**
+!/var/data/**/
+
+/vendor
+
+
+!.gitkeep

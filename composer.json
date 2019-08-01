@@ -1,0 +1,52 @@
+{
+    "name": "dansan/jobboy-bundle",
+    "description": "Symfony bundle for dansan/jobboy",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Danilo Sanchi",
+            "email": "danilo.sanchi@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "dansan/jobboy": "dev-bundlize@dev"
+    },
+    "require-dev": {
+        "ext-redis": "*",
+        "doctrine/dbal": "~2.4",
+        "nesbot/carbon": "^2.0",
+        "dansan/fixture-handler": "*",
+        "mockery/mockery": "dev-master",
+        "symfony/console": "^3.4",
+        "symfony/dotenv": "^4.2",
+        "symfony/phpunit-bridge": "*",
+        "symfony/var-dumper": "^4.2",
+        "symfony/framework-bundle": "^4.0"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "process-timeout": 60,
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "JobBoy\\Bundle\\": "src/JobBoy/Bundle/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+
+    "minimum-stability": "stable"
+}
