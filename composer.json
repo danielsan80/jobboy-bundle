@@ -14,10 +14,8 @@
         "dansan/jobboy": "^0.2.0"
     },
     "require-dev": {
+        "dansan/jobboy-test-pack":"*",
         "dansan/fixture-handler": "*",
-        "mockery/mockery": "dev-master",
-        "symfony/dotenv": "^4.2",
-        "symfony/phpunit-bridge": "*",
         "symfony/framework-bundle": "^4.0"
     },
     "config": {
@@ -39,7 +37,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "0.2.x-dev"
         }
     },
 
