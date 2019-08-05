@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbd2e8ae09d5700623d57affc44efd56",
+    "content-hash": "281231d6c3656e914a3b2cc8d1b1588f",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -63,16 +63,16 @@
         },
         {
             "name": "dansan/jobboy",
-            "version": "dev-bundlize",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy.git",
-                "reference": "479cd3b01a0322c8c76ccdc26eab60356b1b0ff7"
+                "reference": "f677935f1e669e7bdbcfa4f7c4cabcef10154018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/479cd3b01a0322c8c76ccdc26eab60356b1b0ff7",
-                "reference": "479cd3b01a0322c8c76ccdc26eab60356b1b0ff7",
+                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/f677935f1e669e7bdbcfa4f7c4cabcef10154018",
+                "reference": "f677935f1e669e7bdbcfa4f7c4cabcef10154018",
                 "shasum": ""
             },
             "require": {
@@ -84,8 +84,6 @@
             },
             "require-dev": {
                 "dansan/fixture-handler": "*",
-                "doctrine/dbal": "~2.4",
-                "ext-redis": "*",
                 "mockery/mockery": "dev-master",
                 "nesbot/carbon": "^2.0",
                 "symfony/console": "^3.4",
@@ -97,7 +95,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1.x-dev"
+                    "dev-master": "0.2.x-dev"
                 }
             },
             "autoload": {
@@ -117,7 +115,7 @@
                 }
             ],
             "description": "It's a little jobman... a little job manager",
-            "time": "2019-08-01T15:46:35+00:00"
+            "time": "2019-08-05T10:36:55+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2006,7 +2004,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dansan/jobboy": 20,
         "mockery/mockery": 20
     },
     "prefer-stable": false,
