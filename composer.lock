@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "281231d6c3656e914a3b2cc8d1b1588f",
+    "content-hash": "05c7d5473b43f12cfe94ac13bf010022",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -63,16 +63,16 @@
         },
         {
             "name": "dansan/jobboy",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy.git",
-                "reference": "f677935f1e669e7bdbcfa4f7c4cabcef10154018"
+                "reference": "e4b853f2c3c724e69a7e14fd30cc1a99345f6bd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/f677935f1e669e7bdbcfa4f7c4cabcef10154018",
-                "reference": "f677935f1e669e7bdbcfa4f7c4cabcef10154018",
+                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/e4b853f2c3c724e69a7e14fd30cc1a99345f6bd3",
+                "reference": "e4b853f2c3c724e69a7e14fd30cc1a99345f6bd3",
                 "shasum": ""
             },
             "require": {
@@ -84,12 +84,9 @@
             },
             "require-dev": {
                 "dansan/fixture-handler": "*",
-                "mockery/mockery": "dev-master",
-                "nesbot/carbon": "^2.0",
+                "dansan/jobboy-test-pack": "*",
                 "symfony/console": "^3.4",
-                "symfony/dotenv": "^4.2",
                 "symfony/framework-bundle": "^4.0",
-                "symfony/phpunit-bridge": "*",
                 "symfony/var-dumper": "^4.2"
             },
             "type": "library",
@@ -115,7 +112,7 @@
                 }
             ],
             "description": "It's a little jobman... a little job manager",
-            "time": "2019-08-05T10:36:55+00:00"
+            "time": "2019-08-05T14:11:04+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -455,6 +452,46 @@
             "time": "2019-03-29T11:11:19+00:00"
         },
         {
+            "name": "dansan/jobboy-test-pack",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielsan80/jobboy-test-pack.git",
+                "reference": "c3f81339dbadfcde2c98cf7e79363897688681b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielsan80/jobboy-test-pack/zipball/c3f81339dbadfcde2c98cf7e79363897688681b7",
+                "reference": "c3f81339dbadfcde2c98cf7e79363897688681b7",
+                "shasum": ""
+            },
+            "require": {
+                "mockery/mockery": "*",
+                "nesbot/carbon": "^2.0",
+                "php": "^7.1.3",
+                "symfony/dotenv": "^4.2",
+                "symfony/phpunit-bridge": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danilo Sanchi",
+                    "email": "danilo.sanchi@gmail.com"
+                }
+            ],
+            "description": "Just a pack to share test dependencies between all JobBoy repositories",
+            "time": "2019-08-05T14:02:32+00:00"
+        },
+        {
             "name": "hamcrest/hamcrest-php",
             "version": "v2.0.0",
             "source": {
@@ -504,16 +541,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "dev-master",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "ffe255a19a1862d3a601ba74925d4f3c15896dfa"
+                "reference": "0eb0b48c3f07b3b89f5169ce005b7d05b18cf1d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/ffe255a19a1862d3a601ba74925d4f3c15896dfa",
-                "reference": "ffe255a19a1862d3a601ba74925d4f3c15896dfa",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/0eb0b48c3f07b3b89f5169ce005b7d05b18cf1d2",
+                "reference": "0eb0b48c3f07b3b89f5169ce005b7d05b18cf1d2",
                 "shasum": ""
             },
             "require": {
@@ -565,7 +602,74 @@
                 "test double",
                 "testing"
             ],
-            "time": "2019-07-22T18:06:51+00:00"
+            "time": "2019-02-13T09:37:52+00:00"
+        },
+        {
+            "name": "nesbot/carbon",
+            "version": "2.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1a0e48b5f656065ba3c265b058b25d36c2162a5e",
+                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.1.8 || ^8.0",
+                "symfony/translation": "^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
+                "kylekatarnls/multi-tester": "^1.1",
+                "phpmd/phpmd": "dev-php-7.1-compatibility",
+                "phpstan/phpstan": "^0.11",
+                "phpunit/phpunit": "^7.5 || ^8.0",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "bin": [
+                "bin/carbon"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Carbon\\Laravel\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Carbon\\": "src/Carbon/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Nesbitt",
+                    "email": "brian@nesbot.com",
+                    "homepage": "http://nesbot.com"
+                },
+                {
+                    "name": "kylekatarnls",
+                    "homepage": "http://github.com/kylekatarnls"
+                }
+            ],
+            "description": "A simple API extension for DateTime.",
+            "homepage": "http://carbon.nesbot.com",
+            "keywords": [
+                "date",
+                "datetime",
+                "time"
+            ],
+            "time": "2019-07-28T09:02:12+00:00"
         },
         {
             "name": "psr/cache",
@@ -1941,6 +2045,82 @@
             "time": "2019-07-23T14:43:56+00:00"
         },
         {
+            "name": "symfony/translation",
+            "version": "v4.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation.git",
+                "reference": "4e3e39cc485304f807622bdc64938e4633396406"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/4e3e39cc485304f807622bdc64938e4633396406",
+                "reference": "4e3e39cc485304f807622bdc64938e4633396406",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/translation-contracts": "^1.1.2"
+            },
+            "conflict": {
+                "symfony/config": "<3.4",
+                "symfony/dependency-injection": "<3.4",
+                "symfony/yaml": "<3.4"
+            },
+            "provide": {
+                "symfony/translation-implementation": "1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~3.4|~4.0",
+                "symfony/console": "~3.4|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/finder": "~2.8|~3.0|~4.0",
+                "symfony/http-kernel": "~3.4|~4.0",
+                "symfony/intl": "~3.4|~4.0",
+                "symfony/service-contracts": "^1.1.2",
+                "symfony/var-dumper": "~3.4|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
+            },
+            "suggest": {
+                "psr/log-implementation": "To use logging capability in translator",
+                "symfony/config": "",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Translation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Translation Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-07-18T10:34:59+00:00"
+        },
+        {
             "name": "symfony/var-exporter",
             "version": "v4.3.3",
             "source": {
@@ -2003,9 +2183,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "mockery/mockery": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
