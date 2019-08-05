@@ -55,6 +55,9 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
     protected function loadDoctrineProcessRepository(ContainerBuilder $container)
     {
+        if (!class_exists('JobBoy\Process\Domain\Repository\Infrastructure\Doctrine\ProcessRepository')) {
+            return;
+        }
 
         $serviceId = $container->getParameter(self::PROCESS_REPOSITORY_SERVICE_ID);
 
@@ -85,6 +88,10 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
     protected function loadRedisProcessRepository(ContainerBuilder $container)
     {
+        if (!class_exists('JobBoy\Process\Domain\Repository\Infrastructure\Redis\ProcessRepository')) {
+            return;
+        }
+
         $serviceParameter = RegisterProcessRepositoryPass::PROCESS_REPOSITORY_SERVICE_ID;
 
         $serviceId = $container->getParameter($serviceParameter);
@@ -142,7 +149,11 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
             return;
         }
 
-        Assertion::subclassOf($container->getParameter(self::PROCESS_CLASS), $processClass);
+        try {
+            Assertion::objectOrClass($container->getParameter(self::PROCESS_CLASS), $processClass);
+        } catch (\InvalidArgumentException $e) {
+            Assertion::subclassOf($container->getParameter(self::PROCESS_CLASS), $processClass);
+        }
     }
 
 
