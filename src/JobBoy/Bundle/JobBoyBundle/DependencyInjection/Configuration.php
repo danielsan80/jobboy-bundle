@@ -2,7 +2,6 @@
 
 namespace JobBoy\Bundle\JobBoyBundle\DependencyInjection;
 
-use JobBoy\Process\Domain\Repository\Infrastructure\Redis\RedisUtil;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
