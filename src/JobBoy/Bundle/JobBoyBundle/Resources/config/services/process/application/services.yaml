@@ -44,3 +44,14 @@ services:
       - '@JobBoy\Process\Domain\IterationMaker\IterationMaker'
       - '@JobBoy\Process\Domain\Lock\LockFactoryInterface'
       - '@JobBoy\Process\Domain\Event\EventBusInterface'
+
+
+  JobBoy\Process\Application\Service\PauseWork:
+    class: JobBoy\Process\Application\Service\PauseWork
+    arguments:
+      - '@JobBoy\Process\Domain\PauseControl\PauseControl'
+
+  JobBoy\Process\Application\Service\UnpauseWork:
+    class: JobBoy\Process\Application\Service\UnpauseWork
+    arguments:
+      - '@JobBoy\Process\Domain\PauseControl\PauseControl'

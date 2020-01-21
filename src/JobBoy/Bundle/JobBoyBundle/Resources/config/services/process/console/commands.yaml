@@ -34,3 +34,17 @@ services:
       - '@JobBoy\Process\Domain\Event\EventBusInterface'
     tags:
       - { name: 'console.command' }
+
+  JobBoy\Process\Console\Command\PauseWorkCommand:
+    class: JobBoy\Process\Console\Command\PauseCommand
+    arguments:
+      - '@JobBoy\Process\Application\Service\PauseWork'
+    tags:
+      - { name: 'console.command' }
+
+  JobBoy\Process\Console\Command\UnpauseWorkCommand:
+    class: JobBoy\Process\Console\Command\UnpauseCommand
+    arguments:
+      - '@JobBoy\Process\Application\Service\UnpauseWork'
+    tags:
+      - { name: 'console.command' }
