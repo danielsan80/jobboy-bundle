@@ -36,14 +36,14 @@ services:
       - { name: 'console.command' }
 
   JobBoy\Process\Console\Command\PauseWorkCommand:
-    class: JobBoy\Process\Console\Command\PauseCommand
+    class: JobBoy\Process\Console\Command\PauseWorkCommand
     arguments:
       - '@JobBoy\Process\Application\Service\PauseWork'
     tags:
       - { name: 'console.command' }
 
   JobBoy\Process\Console\Command\UnpauseWorkCommand:
-    class: JobBoy\Process\Console\Command\UnpauseCommand
+    class: JobBoy\Process\Console\Command\UnpauseWorkCommand
     arguments:
       - '@JobBoy\Process\Application\Service\UnpauseWork'
     tags:
