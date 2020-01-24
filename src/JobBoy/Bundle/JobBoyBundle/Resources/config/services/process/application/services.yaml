@@ -43,8 +43,9 @@ services:
     arguments:
       - '@JobBoy\Process\Domain\IterationMaker\IterationMaker'
       - '@JobBoy\Process\Domain\Lock\LockFactoryInterface'
-      - '@JobBoy\Process\Domain\PauseControl\PauseControl'
       - '@JobBoy\Process\Domain\Event\EventBusInterface'
+      - '@JobBoy\Process\Domain\MemoryLimit\MemoryLimit'
+      - '@JobBoy\Process\Domain\PauseControl\PauseControl'
 
 
   JobBoy\Process\Application\Service\PauseWork:

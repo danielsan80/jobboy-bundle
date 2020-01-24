@@ -1,0 +1,7 @@
+services:
+
+  JobBoy\Process\Domain\MemoryLimit\MemoryLimit:
+    alias: JobBoy\Process\Domain\PauseControl\Infrastructure\File\PauseControl
+
+  JobBoy\Process\Domain\MemoryLimit\AutodetectedMemoryLimit:
+    class: JobBoy\Process\Domain\MemoryLimit\AutodetectedMemoryLimit
