@@ -1,0 +1,9 @@
+services:
+
+  JobBoy\Process\Domain\NoteQueue\NoteQueueControl:
+    alias: JobBoy\Process\Domain\NoteQueue\Infrastructure\File\FileNoteQueueControl
+
+  JobBoy\Process\Domain\NoteQueue\Infrastructure\File\FileNoteQueueControl:
+    class: JobBoy\Process\Domain\NoteQueue\Infrastructure\File\FileNoteQueueControl
+    arguments:
+      - '@JobBoy\Process\Domain\Lock\LockFactoryInterface'

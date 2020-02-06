@@ -37,6 +37,11 @@ services:
       - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
 
 
+  JobBoy\Process\Application\Service\KillProcess:
+    class: JobBoy\Process\Application\Service\KillProcess
+    arguments:
+      - '@JobBoy\Process\Domain\KillList\KillList'
+
 
   JobBoy\Process\Application\Service\Work:
     class: JobBoy\Process\Application\Service\Work
@@ -55,5 +60,10 @@ services:
 
   JobBoy\Process\Application\Service\UnpauseWork:
     class: JobBoy\Process\Application\Service\UnpauseWork
+    arguments:
+      - '@JobBoy\Process\Domain\PauseControl\PauseControl'
+
+  JobBoy\Process\Application\Service\IsWorkPaused:
+    class: JobBoy\Process\Application\Service\IsWorkPaused
     arguments:
       - '@JobBoy\Process\Domain\PauseControl\PauseControl'

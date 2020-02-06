@@ -1,0 +1,15 @@
+services:
+
+  JobBoy\Process\Domain\KillList\KillList:
+    alias: JobBoy\Process\Domain\KillList\Infrastructure\NoteQueue\KillList
+
+
+  # at now there is a unique NoteQueueControl shared by all... dangerous
+  JobBoy\Process\Domain\KillList\Infrastructure\NoteQueue\KillList:
+    class: JobBoy\Process\Domain\KillList\Infrastructure\NoteQueue\KillList
+    arguments:
+      - '@JobBoy\Process\Domain\KillList\Infrastructure\NoteQueue\KillList.note_queue_control'
+
+
+  JobBoy\Process\Domain\KillList\Infrastructure\NoteQueue\KillList.note_queue_control:
+    alias: JobBoy\Process\Domain\NoteQueue\NoteQueueControl

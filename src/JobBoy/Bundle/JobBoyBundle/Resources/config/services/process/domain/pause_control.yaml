@@ -1,7 +1,19 @@
 services:
 
   JobBoy\Process\Domain\PauseControl\PauseControl:
-    alias: JobBoy\Process\Domain\PauseControl\Infrastructure\File\PauseControl
+    alias: JobBoy\Process\Domain\PauseControl\Infrastructure\NoteQueue\PauseControl
+
 
   JobBoy\Process\Domain\PauseControl\Infrastructure\File\PauseControl:
     class: JobBoy\Process\Domain\PauseControl\Infrastructure\File\PauseControl
+
+
+  # at now there is a unique NoteQueueControl shared by all... dangerous
+  JobBoy\Process\Domain\PauseControl\Infrastructure\NoteQueue\PauseControl:
+    class: JobBoy\Process\Domain\PauseControl\Infrastructure\NoteQueue\PauseControl
+    arguments:
+      - '@JobBoy\Process\Domain\PauseControl\Infrastructure\NoteQueue\PauseControl.note_queue_control'
+
+
+  JobBoy\Process\Domain\PauseControl\Infrastructure\NoteQueue\PauseControl.note_queue_control:
+    alias: JobBoy\Process\Domain\NoteQueue\NoteQueueControl
