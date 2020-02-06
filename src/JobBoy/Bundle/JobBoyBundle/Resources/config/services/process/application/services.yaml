@@ -57,3 +57,8 @@ services:
     class: JobBoy\Process\Application\Service\UnpauseWork
     arguments:
       - '@JobBoy\Process\Domain\PauseControl\PauseControl'
+
+  JobBoy\Process\Application\Service\IsWorkPaused:
+    class: JobBoy\Process\Application\Service\IsWorkPaused
+    arguments:
+      - '@JobBoy\Process\Domain\PauseControl\PauseControl'
