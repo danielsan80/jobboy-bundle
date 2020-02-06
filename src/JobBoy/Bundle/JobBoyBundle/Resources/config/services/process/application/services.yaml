@@ -37,6 +37,11 @@ services:
       - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
 
 
+  JobBoy\Process\Application\Service\KillProcess:
+    class: JobBoy\Process\Application\Service\KillProcess
+    arguments:
+      - '@JobBoy\Process\Domain\KillList\KillList'
+
 
   JobBoy\Process\Application\Service\Work:
     class: JobBoy\Process\Application\Service\Work
