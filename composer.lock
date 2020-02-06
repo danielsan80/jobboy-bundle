@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2d745ce123ee3a6b8d0d25470bc683a",
+    "content-hash": "05c7d5473b43f12cfe94ac13bf010022",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -70,16 +70,16 @@
         },
         {
             "name": "dansan/jobboy",
-            "version": "dev-feature/command_queue",
+            "version": "0.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy.git",
-                "reference": "e1c71d6aa3da23bfcf9607c7d31a0b6093b1ce99"
+                "reference": "2c720936bf66644011cf346249c3fe9cbb4f5a8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/e1c71d6aa3da23bfcf9607c7d31a0b6093b1ce99",
-                "reference": "e1c71d6aa3da23bfcf9607c7d31a0b6093b1ce99",
+                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/2c720936bf66644011cf346249c3fe9cbb4f5a8f",
+                "reference": "2c720936bf66644011cf346249c3fe9cbb4f5a8f",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "It's a little jobman... a little job manager",
-            "time": "2020-02-06T16:36:10+00:00"
+            "time": "2020-02-06T18:29:49+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2495,9 +2495,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "dansan/jobboy": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
