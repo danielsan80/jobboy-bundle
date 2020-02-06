@@ -39,6 +39,7 @@ services:
     class: JobBoy\Process\Console\Command\PauseWorkCommand
     arguments:
       - '@JobBoy\Process\Application\Service\PauseWork'
+      - '@JobBoy\Process\Application\Service\IsWorkPaused'
     tags:
       - { name: 'console.command' }
 
@@ -46,5 +47,14 @@ services:
     class: JobBoy\Process\Console\Command\UnpauseWorkCommand
     arguments:
       - '@JobBoy\Process\Application\Service\UnpauseWork'
+      - '@JobBoy\Process\Application\Service\IsWorkPaused'
+    tags:
+      - { name: 'console.command' }
+
+  JobBoy\Process\Console\Command\KillProcessCommand:
+    class: JobBoy\Process\Console\Command\KillProcessCommand
+    arguments:
+      - '@JobBoy\Process\Application\Service\KillProcess'
+      - '@JobBoy\Process\Application\Service\ListProcesses'
     tags:
       - { name: 'console.command' }
