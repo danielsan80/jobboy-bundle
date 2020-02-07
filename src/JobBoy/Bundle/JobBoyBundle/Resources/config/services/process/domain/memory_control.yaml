@@ -1,0 +1,7 @@
+services:
+
+  JobBoy\Process\Domain\MemoryControl\MemoryControl:
+    alias: JobBoy\Process\Domain\MemoryControl\AutodetectedMemoryControl
+
+  JobBoy\Process\Domain\MemoryControl\AutodetectedMemoryControl:
+    class: JobBoy\Process\Domain\MemoryControl\AutodetectedMemoryControl
