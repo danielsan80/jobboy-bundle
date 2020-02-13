@@ -15,3 +15,4 @@ services:
     class: JobBoy\Process\Domain\Repository\Infrastructure\Redis\ProcessRepository
     arguments:
       - '@jobboy.process_repository.redis'
+      - '%jobboy.process_repository.redis.namespace%'
