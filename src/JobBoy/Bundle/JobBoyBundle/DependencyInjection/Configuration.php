@@ -11,6 +11,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     const REDIS_DEFAULT_PORT = 6379;
+    const REDIS_DEFAULT_NAMESPACE = null;
 
     /**
      * {@inheritDoc}
@@ -44,6 +45,10 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('port')
                             ->info('the Redis port')
                             ->defaultValue(self::REDIS_DEFAULT_PORT)
+                        ->end()
+                        ->scalarNode('namespace')
+                            ->info('the namespace where to save processes on Redis')
+                            ->defaultValue(self::REDIS_DEFAULT_NAMESPACE)
                         ->end()
                     ->end()
                 ->end()
