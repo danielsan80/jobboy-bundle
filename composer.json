@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "dansan/jobboy": "^0.2.0"
+        "dansan/jobboy": "^0.3.0"
     },
     "require-dev": {
         "dansan/jobboy-test-pack":"*",
