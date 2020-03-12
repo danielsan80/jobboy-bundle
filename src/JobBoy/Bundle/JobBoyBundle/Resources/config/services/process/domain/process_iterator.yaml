@@ -5,6 +5,7 @@ services:
     arguments:
       - '@JobBoy\Process\Domain\ProcessHandler\ProcessHandlerRegistry'
       - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
+      - '@JobBoy\Process\Domain\Event\EventBusInterface'
 
 
   JobBoy\Process\Domain\ProcessHandler\ProcessHandlerRegistry:

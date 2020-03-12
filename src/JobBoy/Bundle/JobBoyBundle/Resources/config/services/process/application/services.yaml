@@ -26,6 +26,7 @@ services:
     class: JobBoy\Process\Application\Service\RemoveOldProcesses
     arguments:
       - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
+      - '@JobBoy\Process\Domain\Event\EventBusInterface'
 
 
 
@@ -35,6 +36,7 @@ services:
     arguments:
       - '@JobBoy\Process\Domain\Entity\Factory\ProcessFactory'
       - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
+      - '@JobBoy\Process\Domain\Event\EventBusInterface'
 
 
   JobBoy\Process\Application\Service\KillProcess:
