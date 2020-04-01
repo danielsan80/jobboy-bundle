@@ -3,7 +3,7 @@ services:
   JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\Initialize:
     class: JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\Initialize
     arguments:
-      - "@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface"
+      - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
     lazy: true
     tags:
       - name: jobboy.process_handler
@@ -11,7 +11,7 @@ services:
   JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\Iterate:
     class: JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\Iterate
     arguments:
-      - "@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface"
+      - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
     lazy: true
     tags:
       - name: jobboy.process_handler
@@ -20,7 +20,7 @@ services:
   JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\FreeHandled:
     class:   JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\FreeHandled
     arguments:
-      - "@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface"
+      - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
     lazy: true
     tags:
       - name: jobboy.process_handler
@@ -29,7 +29,7 @@ services:
   JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\ResolveMissingCases:
     class: JobBoy\Process\Domain\Jobs\Dummy\ProcessHandlers\ResolveMissingCases
     arguments:
-      - "@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface"
+      - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
     lazy: true
     tags:
       - name: jobboy.process_handler
