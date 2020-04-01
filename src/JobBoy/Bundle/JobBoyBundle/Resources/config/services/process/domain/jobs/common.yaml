@@ -1,0 +1,21 @@
+services:
+
+
+  JobBoy\Process\Domain\Jobs\Common\ProcessHandlers\FreeHandled:
+    class: JobBoy\Process\Domain\Jobs\Common\ProcessHandlers\FreeHandled
+    arguments:
+      - "@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface"
+    lazy: true
+    tags:
+      - name: jobboy.process_handler
+        priority: 9999
+
+  JobBoy\Process\Domain\Jobs\Common\ProcessHandlers\ResolveMissingCases:
+    class: JobBoy\Process\Domain\Jobs\Common\ProcessHandlers\ResolveMissingCases
+    arguments:
+      - "@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface"
+    lazy: true
+    tags:
+      - name: jobboy.process_handler
+        priority: 10000
+
