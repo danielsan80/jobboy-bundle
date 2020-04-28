@@ -29,6 +29,10 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('instance_code')
+                    ->defaultValue(null)
+                    ->info('A code for this instance. NULL by default, it means each instance has a code calculated from the path of the installation. At now it is used by the locks.')
+                ->end()
                 ->scalarNode('process_repository')
                     ->defaultValue('in_memory')
                     ->info('a service definition id implementing JobBoy\Process\Domain\Repository\ProcessRepositoryInterface')

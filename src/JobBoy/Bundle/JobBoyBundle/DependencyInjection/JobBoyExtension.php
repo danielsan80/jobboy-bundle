@@ -2,7 +2,6 @@
 
 namespace JobBoy\Bundle\JobBoyBundle\DependencyInjection;
 
-use JobBoy\Process\Domain\Repository\Infrastructure\Redis\RedisUtil;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -25,6 +24,7 @@ class JobBoyExtension extends Extension
 
         $config = $this->processConfiguration($configuration, $configs);
 
+        $this->readInstanceCode($config, $container);
         $this->readProcessRepository($config, $container);
         $this->readProcessClass($config, $container);
         $this->readRedis($config, $container);
@@ -32,6 +32,12 @@ class JobBoyExtension extends Extension
 
 
     }
+
+    protected function readInstanceCode(array $config, ContainerBuilder $container)
+    {
+        $container->setParameter('jobboy.instance_code', $config['instance_code']);
+    }
+
 
     protected function readProcessRepository(array $config, ContainerBuilder $container)
     {

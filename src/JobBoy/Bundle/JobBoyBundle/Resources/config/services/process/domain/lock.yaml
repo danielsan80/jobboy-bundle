@@ -6,3 +6,9 @@ services:
 
   JobBoy\Process\Domain\Lock\Infrastructure\Symfony\LockFactory:
     class: JobBoy\Process\Domain\Lock\Infrastructure\Symfony\LockFactory
+    arguments: [ ~, '@JobBoy\Process\Domain\Lock\LockSpace' ]
+
+  JobBoy\Process\Domain\Lock\LockSpace:
+    class: JobBoy\Process\Domain\Lock\LockSpace
+    arguments: ['%jobboy.instance_code%']
+
