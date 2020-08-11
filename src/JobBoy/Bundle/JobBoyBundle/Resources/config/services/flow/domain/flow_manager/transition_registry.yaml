@@ -1,0 +1,12 @@
+services:
+
+  JobBoy\Bundle\Flow\Domain\StepManager\HasNodeTransitionRegistryDecorator:
+    class: JobBoy\Bundle\Flow\Domain\StepManager\HasNodeTransitionRegistryDecorator
+    arguments:
+      - '@JobBoy\Bundle\Flow\Domain\StepManager\HasNodeTransitionRegistryDecorator.inner'
+    decorates: JobBoy\Flow\Domain\FlowManager\TransitionRegistry
+    lazy: true
+
+  JobBoy\Flow\Domain\FlowManager\TransitionRegistry:
+    class: JobBoy\Step\Domain\StepManager\TransitionRegistry
+    lazy: true

@@ -1,0 +1,8 @@
+services:
+
+  JobBoy\Flow\Domain\FlowManager\FlowManager:
+    class: JobBoy\Flow\Domain\FlowManager\FlowManager
+    arguments:
+      - '@JobBoy\Process\Domain\Repository\ProcessRepositoryInterface'
+      - '@JobBoy\Flow\Domain\FlowManager\TransitionRegistry'
+    lazy: true

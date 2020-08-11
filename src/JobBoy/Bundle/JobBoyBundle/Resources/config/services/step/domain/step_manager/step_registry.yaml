@@ -1,7 +1,7 @@
 services:
 
-  JobBoy\Step\Domain\StepManager\Decorator\HasStepDataStepRegistryDecorator:
-    class: JobBoy\Step\Domain\StepManager\Decorator\HasStepDataStepRegistryDecorator
+  JobBoy\Bundle\JobBouBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator:
+    class: JobBoy\Bundle\JobBouBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator
     arguments:
       - '@JobBoy\Step\Domain\StepManager\Decorator\HasStepDataStepRegistryDecorator.inner'
     decorates: JobBoy\Step\Domain\StepManager\StepRegistry
