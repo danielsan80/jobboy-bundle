@@ -3,6 +3,7 @@
 namespace JobBoy\Bundle\JobBoyBundle;
 
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterEventListenersPass;
+use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterFlowPass;
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterProcessHandlersPass;
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterProcessRepositoryPass;
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterStepsPass;
@@ -21,6 +22,7 @@ class JobBoyBundle extends Bundle
 
         $containerBuilder->addCompilerPass(new RegisterProcessHandlersPass());
         $containerBuilder->addCompilerPass(new RegisterStepsPass());
+        $containerBuilder->addCompilerPass(new RegisterFlowPass());
         $containerBuilder->addCompilerPass(new RegisterEventListenersPass());
     }
 

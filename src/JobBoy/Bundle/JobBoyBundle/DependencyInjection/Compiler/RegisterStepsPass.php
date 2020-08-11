@@ -2,8 +2,8 @@
 
 namespace JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler;
 
-use JobBoy\Step\Domain\StepManager\Decorator\HasStepDataStepRegistryDecorator;
 use Assert\Assertion;
+use JobBoy\Bundle\JobBoyBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
