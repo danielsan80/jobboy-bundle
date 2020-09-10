@@ -1,9 +1,9 @@
 services:
 
-  JobBoy\Bundle\JobBouBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator:
-    class: JobBoy\Bundle\JobBouBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator
+  JobBoy\Bundle\JobBoyBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator:
+    class: JobBoy\Bundle\JobBoyBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator
     arguments:
-      - '@JobBoy\Step\Domain\StepManager\Decorator\HasStepDataStepRegistryDecorator.inner'
+      - '@JobBoy\Bundle\JobBoyBundle\Step\Domain\StepManager\HasStepDataStepRegistryDecorator.inner'
     decorates: JobBoy\Step\Domain\StepManager\StepRegistry
     lazy: true
 
