@@ -61,10 +61,10 @@ class RegisterFlowPass implements CompilerPassInterface
             }
 
             if (isset($data['from'])) {
-                $registry->addMethodCall('addNodeChangeFrom', [new Reference($serviceId), $data['on']]);
+                $registry->addMethodCall('addNodeChangeFrom', [new Reference($serviceId), $data['from'], $data['on']]);
             }
             if (isset($data['to'])) {
-                $registry->addMethodCall('addNodeChangeTo', [new Reference($serviceId), $data['on']]);
+                $registry->addMethodCall('addNodeChangeTo', [new Reference($serviceId), $data['to'], $data['on']]);
             }
 
         }
