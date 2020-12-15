@@ -11,6 +11,7 @@ use Symfony\Component\DependencyInjection\Reference;
 class RegisterFlowPass implements CompilerPassInterface
 {
     const DEFAULT_ON = 'done';
+    const DEFAULT_POSITION = 100;
 
     const REGISTRY = HasNodeTransitionRegistryDecorator::class;
     const TAG_ENTRY = 'jobboy.flow.entry';
