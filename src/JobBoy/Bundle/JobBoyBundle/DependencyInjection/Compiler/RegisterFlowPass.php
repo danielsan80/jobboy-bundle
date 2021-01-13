@@ -49,26 +49,23 @@ class RegisterFlowPass implements CompilerPassInterface
         }
 
         $services = $container->findTaggedServiceIds(self::TAG_NODE_CHANGE);
-        foreach ($services as $serviceId => $data) {
-            Assertion::count($data, 1);
-            $data = $data[0];
-            if (!isset($data['from']) && !isset($data['to'])) {
-                throw new \LogicException('You MUST set a `from` OR a `to` node');
-            }
+        foreach ($services as $serviceId => $tagData) {
+            foreach ($tagData as $data) {
+                if (!isset($data['from']) && !isset($data['to'])) {
+                    throw new \LogicException('You MUST set a `from` OR a `to` node');
+                }
 
-            if (!isset($data['on'])) {
-                $data['on'] = self::DEFAULT_ON;
-            }
+                if (!isset($data['on'])) {
+                    $data['on'] = self::DEFAULT_ON;
+                }
 
-            if (isset($data['from'])) {
-                $registry->addMethodCall('addNodeChangeFrom', [new Reference($serviceId), $data['from'], $data['on']]);
+                if (isset($data['from'])) {
+                    $registry->addMethodCall('addNodeChangeFrom', [new Reference($serviceId), $data['from'], $data['on']]);
+                }
+                if (isset($data['to'])) {
+                    $registry->addMethodCall('addNodeChangeTo', [new Reference($serviceId), $data['to'], $data['on']]);
+                }
             }
-            if (isset($data['to'])) {
-                $registry->addMethodCall('addNodeChangeTo', [new Reference($serviceId), $data['to'], $data['on']]);
-            }
-
         }
-
     }
-
 }
