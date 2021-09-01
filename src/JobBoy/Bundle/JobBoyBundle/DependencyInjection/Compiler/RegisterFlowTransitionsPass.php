@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class RegisterFlowPass implements CompilerPassInterface
+class RegisterFlowTransitionsPass implements CompilerPassInterface
 {
     const DEFAULT_ON = 'done';
     const DEFAULT_POSITION = 100;
