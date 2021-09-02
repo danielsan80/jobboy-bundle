@@ -3,14 +3,14 @@
 namespace JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler;
 
 use Assert\Assertion;
-use JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\BundleTransitionLoaderDecorator;
+use JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\RegisterTransitionSetProvidersTransitionLoaderDecorator;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class RegisterFlowTransitionSetProvidersPass implements CompilerPassInterface
+class RegisterTransitionSetProvidersPass implements CompilerPassInterface
 {
-    const REGISTRY = BundleTransitionLoaderDecorator::class;
+    const REGISTRY = RegisterTransitionSetProvidersTransitionLoaderDecorator::class;
     const TAG = 'jobboy.flow.transition_set_provider';
 
     public function process(ContainerBuilder $container)

@@ -1,12 +1,23 @@
 services:
 
-  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryDecorator:
-    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryDecorator
+  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\RegisterHasNodeTransitionsTransitionRegistryDecorator:
+    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\RegisterHasNodeTransitionsTransitionRegistryDecorator
     arguments:
-      - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryDecorator.inner'
+      - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\RegisterHasNodeTransitionsTransitionRegistryDecorator.inner'
     decorates: JobBoy\Flow\Domain\FlowManager\TransitionRegistry
     lazy: true
 
-  JobBoy\Flow\Domain\FlowManager\TransitionRegistry:
-    class: JobBoy\Flow\Domain\FlowManager\TransitionRegistry
+  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\WithTransitionLoaderTransitionRegistryDecorator:
+    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\WithTransitionLoaderTransitionRegistryDecorator
+    arguments:
+      - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\WithTransitionLoaderTransitionRegistryDecorator.inner'
+    decorates: JobBoy\Flow\Domain\FlowManager\TransitionRegistry
     lazy: true
+
+  JobBoy\Flow\Domain\FlowManager\DefaultTransitionRegistry:
+    class: JobBoy\Flow\Domain\FlowManager\DefaultTransitionRegistry
+    lazy: true
+
+  JobBoy\Flow\Domain\FlowManager\TransitionRegistry:
+    alias: JobBoy\Flow\Domain\FlowManager\DefaultTransitionRegistry
+
