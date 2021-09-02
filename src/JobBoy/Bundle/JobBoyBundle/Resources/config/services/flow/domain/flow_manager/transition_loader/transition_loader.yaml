@@ -1,0 +1,16 @@
+services:
+
+  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\ByProviderTransitionLoader:
+    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\ByProviderTransitionLoader
+    arguments:
+      - '@JobBoy\Flow\Domain\FlowManager\TransitionLoader'
+    lazy: true
+
+
+  JobBoy\Flow\Domain\FlowManager\TransitionLoader:
+    class: JobBoy\Flow\Domain\FlowManager\TransitionLoader\TransitionLoader
+    arguments:
+      - '@JobBoy\Flow\Domain\FlowManager\TransitionRegistry'
+    lazy: true
+
+

@@ -4,7 +4,6 @@ services:
     class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\HasNodeTransitionRegistryDecorator
     arguments:
       - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\HasNodeTransitionRegistryDecorator.inner'
-    decorates: JobBoy\Flow\Domain\FlowManager\TransitionRegistry
     lazy: true
 
   JobBoy\Flow\Domain\FlowManager\TransitionRegistry:
