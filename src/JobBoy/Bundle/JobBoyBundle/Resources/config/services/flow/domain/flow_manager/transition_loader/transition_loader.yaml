@@ -5,13 +5,11 @@ services:
     arguments:
       - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\RegisterTransitionSetProvidersTransitionLoaderDecorator.inner'
     decorates: JobBoy\Flow\Domain\FlowManager\TransitionLoader
-    lazy: true
 
   JobBoy\Flow\Domain\FlowManager\DefaultTransitionLoader:
     class: JobBoy\Flow\Domain\FlowManager\TransitionLoader\DefaultTransitionLoader
     arguments:
       - '@JobBoy\Flow\Domain\FlowManager\TransitionRegistry'
-    lazy: true
 
   JobBoy\Flow\Domain\FlowManager\TransitionLoader:
     alias: JobBoy\Flow\Domain\FlowManager\DefaultTransitionLoader
