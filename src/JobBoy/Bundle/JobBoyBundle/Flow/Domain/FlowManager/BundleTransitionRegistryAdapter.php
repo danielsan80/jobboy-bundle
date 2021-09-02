@@ -9,7 +9,7 @@ use JobBoy\Flow\Domain\FlowManager\TransitionRegistry;
 /**
  * You need a decorator (not only an adapter) because of the DIC service loading strategy
  */
-class HasNodeTransitionRegistryDecorator extends TransitionRegistry
+class BundleTransitionRegistryAdapter
 {
     protected $transitionRegistry;
 
@@ -23,15 +23,15 @@ class HasNodeTransitionRegistryDecorator extends TransitionRegistry
         $this->transitionRegistry->add(Transition::createEntry($hasNode->node()));
     }
 
-    public function addNodeChangeFrom(HasNode $hasNode, string $fromNode, string $on): void
+    public function addNodeChangeFrom(string $fromNode, HasNode $toNode, string $on): void
     {
-        $to = $hasNode->node();
+        $to = $toNode->node();
         $this->transitionRegistry->add(Transition::createNodeChange(Node::create($to->job(), $fromNode), $to, $on));
     }
 
-    public function addNodeChangeTo(HasNode $hasNode, string $toNode, string $on): void
+    public function addNodeChangeTo(HasNode $fromNode, string $toNode, string $on): void
     {
-        $from = $hasNode->node();
+        $from = $fromNode->node();
         $this->transitionRegistry->add(Transition::createNodeChange($from, Node::create($from->job(), $toNode), $on));
     }
 
@@ -39,21 +39,5 @@ class HasNodeTransitionRegistryDecorator extends TransitionRegistry
     {
         $this->transitionRegistry->add(Transition::createExit($hasNode->node(), $on));
     }
-
-    public function add(Transition $transition): void
-    {
-        $this->transitionRegistry->add($transition);
-    }
-
-    public function getEntry(string $job): Transition
-    {
-        return $this->transitionRegistry->getEntry($job);
-    }
-
-    public function get(Node $from, string $on): Transition
-    {
-        return $this->transitionRegistry->get($from, $on);
-    }
-
 
 }
