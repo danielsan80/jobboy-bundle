@@ -4,9 +4,13 @@ declare(strict_types=1);
 namespace JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader;
 
 use JobBoy\Flow\Domain\FlowManager\TransitionLoader\TransitionLoader;
+use JobBoy\Flow\Domain\FlowManager\TransitionLoader\TransitionSet;
 use JobBoy\Flow\Domain\FlowManager\TransitionLoader\TransitionSetProvider;
 
-class BundleTransitionLoaderAdapter
+/**
+ * You need a decorator (not only an adapter) because of the DIC service loading strategy
+ */
+class BundleTransitionLoaderDecorator extends TransitionLoader
 {
 
     private $transitionLoader;
@@ -16,7 +20,12 @@ class BundleTransitionLoaderAdapter
         $this->transitionLoader = $transitionLoader;
     }
 
-    public function load(TransitionSetProvider $transitionSetProvider): void
+    public function load(TransitionSet $transitionSet): void
+    {
+        $this->transitionLoader->load($transitionSet);
+    }
+
+    public function loadProvider(TransitionSetProvider $transitionSetProvider): void
     {
         $this->transitionLoader->load($transitionSetProvider->get());
     }

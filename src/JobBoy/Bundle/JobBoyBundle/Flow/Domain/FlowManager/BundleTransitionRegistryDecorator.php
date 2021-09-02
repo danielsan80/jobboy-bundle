@@ -9,7 +9,7 @@ use JobBoy\Flow\Domain\FlowManager\TransitionRegistry;
 /**
  * You need a decorator (not only an adapter) because of the DIC service loading strategy
  */
-class BundleTransitionRegistryAdapter
+class BundleTransitionRegistryDecorator extends TransitionRegistry
 {
     protected $transitionRegistry;
 
@@ -39,5 +39,21 @@ class BundleTransitionRegistryAdapter
     {
         $this->transitionRegistry->add(Transition::createExit($hasNode->node(), $on));
     }
+
+    public function add(Transition $transition): void
+    {
+        $this->transitionRegistry->add($transition);
+    }
+
+    public function getEntry(string $job): Transition
+    {
+        return $this->transitionRegistry->getEntry($job);
+    }
+
+    public function get(Node $from, string $on): Transition
+    {
+        return $this->transitionRegistry->get($from, $on);
+    }
+
 
 }

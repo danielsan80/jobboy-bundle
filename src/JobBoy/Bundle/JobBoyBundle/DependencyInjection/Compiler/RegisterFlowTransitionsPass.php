@@ -3,7 +3,7 @@
 namespace JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler;
 
 use Assert\Assertion;
-use JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryAdapter;
+use JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryDecorator;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -13,7 +13,7 @@ class RegisterFlowTransitionsPass implements CompilerPassInterface
     const DEFAULT_ON = 'done';
     const DEFAULT_POSITION = 100;
 
-    const REGISTRY = BundleTransitionRegistryAdapter::class;
+    const REGISTRY = BundleTransitionRegistryDecorator::class;
     const TAG_ENTRY = 'jobboy.flow.entry';
     const TAG_NODE_CHANGE = 'jobboy.flow.node_change';
     const TAG_EXIT = 'jobboy.flow.exit';
