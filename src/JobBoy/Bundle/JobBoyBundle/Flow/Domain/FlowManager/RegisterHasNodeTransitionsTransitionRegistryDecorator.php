@@ -9,7 +9,7 @@ use JobBoy\Flow\Domain\FlowManager\TransitionRegistry;
 /**
  * You need a decorator (not only an adapter) because of the DIC service loading strategy
  */
-class BundleTransitionRegistryDecorator extends TransitionRegistry
+class RegisterHasNodeTransitionsTransitionRegistryDecorator implements TransitionRegistry
 {
     protected $transitionRegistry;
 

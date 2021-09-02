@@ -10,7 +10,7 @@ use JobBoy\Flow\Domain\FlowManager\TransitionLoader\TransitionSetProvider;
 /**
  * You need a decorator (not only an adapter) because of the DIC service loading strategy
  */
-class BundleTransitionLoaderDecorator extends TransitionLoader
+class RegisterTransitionSetProvidersTransitionLoaderDecorator implements TransitionLoader
 {
 
     private $transitionLoader;
@@ -20,13 +20,13 @@ class BundleTransitionLoaderDecorator extends TransitionLoader
         $this->transitionLoader = $transitionLoader;
     }
 
-    public function load(TransitionSet $transitionSet): void
-    {
-        $this->transitionLoader->load($transitionSet);
-    }
-
     public function loadProvider(TransitionSetProvider $transitionSetProvider): void
     {
         $this->transitionLoader->load($transitionSetProvider->get());
+    }
+
+    public function load(TransitionSet $transitionSet): void
+    {
+        $this->transitionLoader->load($transitionSet);
     }
 }

@@ -1,16 +1,17 @@
 services:
 
-  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\BundleTransitionLoaderDecorator:
-    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\BundleTransitionLoaderDecorator
+  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\RegisterTransitionSetProvidersTransitionLoaderDecorator:
+    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\RegisterTransitionSetProvidersTransitionLoaderDecorator
     arguments:
-      - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\BundleTransitionLoaderDecorator.inner'
+      - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\RegisterTransitionSetProvidersTransitionLoaderDecorator.inner'
     decorates: JobBoy\Flow\Domain\FlowManager\TransitionLoader
     lazy: true
 
-
-  JobBoy\Flow\Domain\FlowManager\TransitionLoader:
-    class: JobBoy\Flow\Domain\FlowManager\TransitionLoader\TransitionLoader
+  JobBoy\Flow\Domain\FlowManager\DefaultTransitionLoader:
+    class: JobBoy\Flow\Domain\FlowManager\TransitionLoader\DefaultTransitionLoader
     arguments:
       - '@JobBoy\Flow\Domain\FlowManager\TransitionRegistry'
     lazy: true
 
+  JobBoy\Flow\Domain\FlowManager\TransitionLoader:
+    alias: JobBoy\Flow\Domain\FlowManager\DefaultTransitionLoader
