@@ -1,7 +1,7 @@
 services:
 
-  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\ByProviderTransitionLoader:
-    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\ByProviderTransitionLoader
+  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\BundleTransitionLoaderAdapter:
+    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\BundleTransitionLoaderAdapter
     arguments:
       - '@JobBoy\Flow\Domain\FlowManager\TransitionLoader'
     lazy: true
