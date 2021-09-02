@@ -11,6 +11,7 @@ services:
     class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\WithTransitionLoaderTransitionRegistryDecorator
     arguments:
       - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\WithTransitionLoaderTransitionRegistryDecorator.inner'
+      - '@JobBoy\Flow\Domain\FlowManager\TransitionLoader'
     decorates: JobBoy\Flow\Domain\FlowManager\TransitionRegistry
     lazy: true
 
