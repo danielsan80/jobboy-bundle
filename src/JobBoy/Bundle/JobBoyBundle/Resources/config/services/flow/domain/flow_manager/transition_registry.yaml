@@ -1,9 +1,10 @@
 services:
 
-  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryAdapter:
-    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryAdapter
+  JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryDecorator:
+    class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryDecorator
     arguments:
-      - '@JobBoy\Flow\Domain\FlowManager\TransitionRegistry'
+      - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryDecorator.inner'
+    decorates: JobBoy\Flow\Domain\FlowManager\TransitionRegistry
     lazy: true
 
   JobBoy\Flow\Domain\FlowManager\TransitionRegistry:
