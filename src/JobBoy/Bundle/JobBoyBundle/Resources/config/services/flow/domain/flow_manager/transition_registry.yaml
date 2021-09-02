@@ -3,7 +3,7 @@ services:
   JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryAdapter:
     class: JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryAdapter
     arguments:
-      - '@JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\BundleTransitionRegistryAdapter'
+      - '@JobBoy\Flow\Domain\FlowManager\TransitionRegistry'
     lazy: true
 
   JobBoy\Flow\Domain\FlowManager\TransitionRegistry:
