@@ -58,3 +58,10 @@ services:
       - '@JobBoy\Process\Application\Service\ListProcesses'
     tags:
       - { name: 'console.command' }
+
+  JobBoy\Process\Console\Command\ListRegisteredProcessHandlersCommand:
+    class: JobBoy\Process\Console\Command\ListRegisteredProcessHandlersCommand
+    arguments:
+      - '@JobBoy\Process\Domain\ProcessHandler\ProcessHandlerRegistry'
+    tags:
+      - { name: 'console.command' }
