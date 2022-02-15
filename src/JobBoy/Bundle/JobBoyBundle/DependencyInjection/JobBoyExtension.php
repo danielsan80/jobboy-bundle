@@ -14,6 +14,7 @@ class JobBoyExtension extends Extension
 {
     const REDIS_DEFAULT_PORT = 6379;
     const REDIS_DEFAULT_NAMESPACE = null;
+    const API_DEFAULT_REQUIRED_ROLE = 'ROLE_JOBBOY';
 
     /**
      * {@inheritDoc}
@@ -75,10 +76,8 @@ class JobBoyExtension extends Extension
 
     protected function readApi(array $config, ContainerBuilder $container): void
     {
-        if (!isset($config['api']['required_role'])) {
-            return;
-        }
-        $container->setParameter('jobboy.api.required_role', $config['api']['required_role']);
+        $requiredRole = $config['api']['required_role']??self::API_DEFAULT_REQUIRED_ROLE;
+        $container->setParameter('jobboy.api.required_role', $requiredRole);
     }
 
     protected function loadServices(ContainerBuilder $container): void
