@@ -12,6 +12,7 @@ class Configuration implements ConfigurationInterface
 {
     const REDIS_DEFAULT_PORT = 6379;
     const REDIS_DEFAULT_NAMESPACE = null;
+    const API_DEFAULT_REQUIRED_ROLE = 'ROLE_JOBBOY';
 
     /**
      * {@inheritDoc}
@@ -53,6 +54,15 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('namespace')
                             ->info('the namespace where to save processes on Redis')
                             ->defaultValue(self::REDIS_DEFAULT_NAMESPACE)
+                        ->end()
+                    ->end()
+                ->end()
+                ->arrayNode('api')
+                    ->info('used if JobBoyApi module is available')
+                    ->children()
+                        ->scalarNode('required_role')
+                            ->info('the role required to call the JobBoy api')
+                            ->defaultValue(self::API_DEFAULT_REQUIRED_ROLE)
                         ->end()
                     ->end()
                 ->end()

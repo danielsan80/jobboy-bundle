@@ -29,6 +29,7 @@ class JobBoyExtension extends Extension
         $this->readProcessRepository($config, $container);
         $this->readProcessClass($config, $container);
         $this->readRedis($config, $container);
+        $this->readApi($config, $container);
         $this->loadServices($container);
         $this->loadApiServices($container);
 
@@ -70,6 +71,14 @@ class JobBoyExtension extends Extension
                 $container->setParameter('jobboy.process_repository.redis.namespace', self::REDIS_DEFAULT_NAMESPACE);
             }
         }
+    }
+
+    protected function readApi(array $config, ContainerBuilder $container): void
+    {
+        if (!isset($config['api']['required_role'])) {
+            return;
+        }
+        $container->setParameter('jobboy.api.required_role', $config['api']['required_role']);
     }
 
     protected function loadServices(ContainerBuilder $container): void
