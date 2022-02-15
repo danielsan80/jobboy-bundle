@@ -56,6 +56,14 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('api')
+                    ->info('used if JobBoyApi module is available')
+                    ->children()
+                        ->scalarNode('required_role')
+                            ->info('the role required to call the JobBoy api')
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;
