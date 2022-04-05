@@ -2,6 +2,7 @@
 
 namespace JobBoy\Bundle\JobBoyBundle\DependencyInjection;
 
+use Assert\Assertion;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -45,7 +46,7 @@ class JobBoyExtension extends Extension
 
     protected function readProcessRepository(array $config, ContainerBuilder $container): void
     {
-        $container->setParameter('jobboy.process_repository.service_id', $config['process_repository']);
+        $container->setParameter('jobboy.process_repository.service_id', $config['process_repository']['name']);
     }
 
 
@@ -59,15 +60,16 @@ class JobBoyExtension extends Extension
 
     protected function readRedis(array $config, ContainerBuilder $container): void
     {
-        if (isset($config['redis']['host'])) {
-            $container->setParameter('jobboy.process_repository.redis.host', $config['redis']['host']);
-            if (isset($config['redis']['port'])) {
-                $container->setParameter('jobboy.process_repository.redis.port', $config['redis']['port']);
+        if ($config['process_repository']['name'] === 'redis') {
+            Assertion::true(isset($config['process_repository']['parameters']['redis']['host']),'process_repository(redis) `host` is not set');
+            $container->setParameter('jobboy.process_repository.redis.host', $config['process_repository']['parameters']['redis']['host']);
+            if (isset($config['process_repository']['parameters']['redis']['port'])) {
+                $container->setParameter('jobboy.process_repository.redis.port', $config['process_repository']['parameters']['redis']['port']);
             } else {
                 $container->setParameter('jobboy.process_repository.redis.port', self::REDIS_DEFAULT_PORT);
             }
-            if (isset($config['redis']['namespace'])) {
-                $container->setParameter('jobboy.process_repository.redis.namespace', $config['redis']['namespace']);
+            if (isset($config['process_repository']['parameters']['redis']['namespace'])) {
+                $container->setParameter('jobboy.process_repository.redis.namespace', $config['process_repository']['parameters']['redis']['namespace']);
             } else {
                 $container->setParameter('jobboy.process_repository.redis.namespace', self::REDIS_DEFAULT_NAMESPACE);
             }
