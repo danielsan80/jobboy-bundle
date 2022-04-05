@@ -39,7 +39,7 @@ class JobBoyExtension extends Extension
 
     protected function readInstanceCode(array $config, ContainerBuilder $container): void
     {
-        $container->setParameter('jobboy.instance_code', $config['instance_code']);
+        $container->setParameter('jobboy.instance_code', $config['instance_code']??null);
     }
 
 
@@ -52,7 +52,7 @@ class JobBoyExtension extends Extension
     protected function readProcessClass(array $config, ContainerBuilder $container): void
     {
         if (isset($config['process_class'])) {
-            $container->setParameter('jobboy.process.class', $config['process_class']);
+            $container->setParameter('jobboy.process.class', $config['process_class']??null);
         }
     }
 

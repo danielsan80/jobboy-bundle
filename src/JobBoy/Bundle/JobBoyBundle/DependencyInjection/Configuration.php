@@ -42,7 +42,6 @@ class Configuration implements ConfigurationInterface
         $node
             ->children()
                 ->scalarNode('instance_code')
-                    ->defaultValue(null)
                     ->info('A code for this instance. NULL by default, it means each instance has a code calculated from the path of the installation. At now it is used by the locks.')
                 ->end()
         ;

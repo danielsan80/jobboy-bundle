@@ -14,11 +14,12 @@
         "dansan/jobboy": "^0.3.0"
     },
     "require-dev": {
-        "dansan/jobboy-test-pack":"*",
         "dansan/fixture-handler": "*",
-        "symfony/framework-bundle": "^4.0",
+        "dansan/jobboy-driver-redis": "*@dev",
         "dansan/jobboy-processes-doctrine": "^0.3",
-        "dansan/jobboy-driver-redis": "*@dev"
+        "dansan/jobboy-test-pack": "*",
+        "matthiasnoback/symfony-dependency-injection-test": "^4.3",
+        "symfony/framework-bundle": "^4.0"
     },
     "config": {
         "preferred-install": {
