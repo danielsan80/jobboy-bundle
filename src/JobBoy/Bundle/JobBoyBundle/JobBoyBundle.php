@@ -2,13 +2,9 @@
 
 namespace JobBoy\Bundle\JobBoyBundle;
 
-use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterEventListenersPass;
-use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterHasNodeTransitionsPass;
-use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterTransitionSetProvidersPass;
-use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterProcessHandlersPass;
-use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterProcessRepositoryPass;
-use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\RegisterStepsPass;
+use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Helper\CompilerPassAdder as MainCompilerPassAdder;
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\JobBoyExtension;
+use JobBoy\Bundle\JobBoyBundle\Drivers\Redis\RedisDriverHelper;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -19,18 +15,27 @@ class JobBoyBundle extends Bundle
     {
         parent::build($containerBuilder);
 
-        $containerBuilder->addCompilerPass(new RegisterProcessRepositoryPass());
+        $this->buildMain($containerBuilder);
+        $this->buildDrivers($containerBuilder);
 
-        $containerBuilder->addCompilerPass(new RegisterProcessHandlersPass());
-        $containerBuilder->addCompilerPass(new RegisterStepsPass());
-        $containerBuilder->addCompilerPass(new RegisterHasNodeTransitionsPass());
-        $containerBuilder->addCompilerPass(new RegisterTransitionSetProvidersPass());
-        $containerBuilder->addCompilerPass(new RegisterEventListenersPass());
     }
 
     protected function getContainerExtensionClass()
     {
         return JobBoyExtension::class;
+    }
+
+    private function buildMain(ContainerBuilder $containerBuilder): void
+    {
+        $compilerPassAdder = new MainCompilerPassAdder();
+        $compilerPassAdder->addTo($containerBuilder);
+    }
+
+    private function buildDrivers(ContainerBuilder $containerBuilder): void
+    {
+        if (RedisDriverHelper::hasDriver()) {
+            RedisDriverHelper::buildContainer($containerBuilder);
+        }
     }
 
 }

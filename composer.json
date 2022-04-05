@@ -16,7 +16,9 @@
     "require-dev": {
         "dansan/jobboy-test-pack":"*",
         "dansan/fixture-handler": "*",
-        "symfony/framework-bundle": "^4.0"
+        "symfony/framework-bundle": "^4.0",
+        "dansan/jobboy-processes-doctrine": "^0.3",
+        "dansan/jobboy-driver-redis": "*@dev"
     },
     "config": {
         "preferred-install": {
@@ -42,5 +44,12 @@
         }
     },
 
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:danielsan80/jobboy-driver-redis.git"
+        }
+    ]
 }
