@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bff10b0ba214f0124610646d71ef0329",
+    "content-hash": "46b38f450e4d401e71fd1c34cfa246e8",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -625,17 +625,75 @@
             "time": "2019-03-29T11:11:19+00:00"
         },
         {
+            "name": "dansan/jobboy-driver-doctrine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielsan80/jobboy-driver-doctrine.git",
+                "reference": "ae15c453ac230e72a82adf2488a948c5457d3723"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielsan80/jobboy-driver-doctrine/zipball/ae15c453ac230e72a82adf2488a948c5457d3723",
+                "reference": "ae15c453ac230e72a82adf2488a948c5457d3723",
+                "shasum": ""
+            },
+            "require": {
+                "dansan/jobboy": "^0.3.0",
+                "ext-json": "*",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "dansan/fixture-handler": "*",
+                "dansan/jobboy-test-pack": "*",
+                "doctrine/dbal": "~2.4",
+                "doctrine/migrations": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JobBoy\\": "src/JobBoy/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danilo Sanchi",
+                    "email": "danilo.sanchi@gmail.com"
+                }
+            ],
+            "description": "Doctrine Driver for dansan/jobboy",
+            "support": {
+                "source": "https://github.com/danielsan80/jobboy-driver-doctrine/tree/master",
+                "issues": "https://github.com/danielsan80/jobboy-driver-doctrine/issues"
+            },
+            "time": "2022-04-07T16:04:10+00:00"
+        },
+        {
             "name": "dansan/jobboy-driver-redis",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy-driver-redis.git",
-                "reference": "cf62e6bbef7f37df77942e27bb45b4c1cd3950e7"
+                "reference": "6759368f09066970a34ad7d5ddc75e084fb629fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy-driver-redis/zipball/cf62e6bbef7f37df77942e27bb45b4c1cd3950e7",
-                "reference": "cf62e6bbef7f37df77942e27bb45b4c1cd3950e7",
+                "url": "https://api.github.com/repos/danielsan80/jobboy-driver-redis/zipball/6759368f09066970a34ad7d5ddc75e084fb629fc",
+                "reference": "6759368f09066970a34ad7d5ddc75e084fb629fc",
                 "shasum": ""
             },
             "require": {
@@ -679,61 +737,7 @@
                 "source": "https://github.com/danielsan80/jobboy-driver-redis/tree/master",
                 "issues": "https://github.com/danielsan80/jobboy-driver-redis/issues"
             },
-            "time": "2022-04-05T10:54:21+00:00"
-        },
-        {
-            "name": "dansan/jobboy-processes-doctrine",
-            "version": "0.3.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danielsan80/jobboy-processes-doctrine.git",
-                "reference": "457596e280a53f387d7e96c3dc7b0412f1ace2bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy-processes-doctrine/zipball/457596e280a53f387d7e96c3dc7b0412f1ace2bc",
-                "reference": "457596e280a53f387d7e96c3dc7b0412f1ace2bc",
-                "shasum": ""
-            },
-            "require": {
-                "dansan/jobboy": "^0.3.0",
-                "ext-json": "*",
-                "php": "^7.1.3"
-            },
-            "require-dev": {
-                "dansan/fixture-handler": "*",
-                "dansan/jobboy-test-pack": "*",
-                "doctrine/dbal": "~2.4",
-                "doctrine/migrations": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-0.2": "0.2.x-dev",
-                    "dev-master": "0.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JobBoy\\": "src/JobBoy/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Danilo Sanchi",
-                    "email": "danilo.sanchi@gmail.com"
-                }
-            ],
-            "description": "Doctrine ProcessRepository for dansan/jobboy",
-            "support": {
-                "issues": "https://github.com/danielsan80/jobboy-processes-doctrine/issues",
-                "source": "https://github.com/danielsan80/jobboy-processes-doctrine/tree/0.3.5"
-            },
-            "time": "2022-02-14T17:51:39+00:00"
+            "time": "2022-04-07T15:31:51+00:00"
         },
         {
             "name": "dansan/jobboy-test-pack",
@@ -5318,7 +5322,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dansan/jobboy-driver-redis": 20
+        "dansan/jobboy-driver-redis": 20,
+        "dansan/jobboy-driver-doctrine": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
