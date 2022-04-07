@@ -18,6 +18,11 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
+/**
+ * I'm not sure, I don't remember. I think we are doing this in a CompilePass instead doing it
+ * in the Extension to allow defining a ProcessRepository service in another bundle or in the app.
+ * Maybe this is not necessary.
+ */
 class RegisterProcessRepositoryPass implements CompilerPassInterface
 {
     const PROCESS_REPOSITORY_SERVICE_ID = 'jobboy.process_repository.service_id';
@@ -63,7 +68,7 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
             return;
         }
 
-        if (!class_exists('JobBoy\Process\Domain\Repository\Infrastructure\Doctrine\ProcessRepository')) {
+        if (!class_exists(DoctrineProcessRepository::class)) {
             return;
         }
 
@@ -100,13 +105,11 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
             return;
         }
 
-        if (!class_exists('JobBoy\Process\Domain\Repository\Infrastructure\Redis\ProcessRepository')) {
+        if (!class_exists(RedisProcessRepository::class)) {
             return;
         }
 
-        $serviceParameter = RegisterProcessRepositoryPass::PROCESS_REPOSITORY_SERVICE_ID;
-
-        $serviceId = $container->getParameter($serviceParameter);
+        $serviceId = $container->getParameter(RegisterProcessRepositoryPass::PROCESS_REPOSITORY_SERVICE_ID);
 
         if ($serviceId === 'redis') {
             $container->setParameter(self::PROCESS_REPOSITORY_SERVICE_ID, RedisProcessRepository::class);
@@ -122,7 +125,7 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
             && !$container->hasParameter('jobboy.process_repository.redis.port')
         ) {
             throw new \InvalidArgumentException(sprintf(
-                'To use %s you need to set `job_boy.redis.host` config',
+                'To use %s as ProcessRepository you need to set `job_boy.process_repository.redis.host` config',
                 RedisProcessRepository::class
             ));
         }

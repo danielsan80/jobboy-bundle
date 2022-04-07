@@ -27,10 +27,12 @@ class JobBoyExtension extends Extension
 
         $config = $this->processConfiguration($configuration, $configs);
 
+        $this->assertProcessRepositoryParametersAreValid($config);
+
         $this->readInstanceCode($config, $container);
-        $this->readProcessRepository($config, $container);
+        $this->readProcessRepositoryName($config, $container);
         $this->readProcessClass($config, $container);
-        $this->readRedis($config, $container);
+        $this->readRedisProcessRepository($config, $container);
         $this->readApi($config, $container);
         $this->loadServices($container);
         $this->loadApiServices($container);
@@ -44,8 +46,9 @@ class JobBoyExtension extends Extension
     }
 
 
-    protected function readProcessRepository(array $config, ContainerBuilder $container): void
+    protected function readProcessRepositoryName(array $config, ContainerBuilder $container): void
     {
+        Assertion::true(isset($config['process_repository']['name']), 'The config key "process_repository.name" is required');
         $container->setParameter('jobboy.process_repository.service_id', $config['process_repository']['name']);
     }
 
@@ -58,7 +61,7 @@ class JobBoyExtension extends Extension
     }
 
 
-    protected function readRedis(array $config, ContainerBuilder $container): void
+    protected function readRedisProcessRepository(array $config, ContainerBuilder $container): void
     {
         if ($config['process_repository']['name'] === 'redis') {
             Assertion::true(isset($config['process_repository']['parameters']['redis']['host']),'process_repository(redis) `host` is not set');
@@ -104,6 +107,16 @@ class JobBoyExtension extends Extension
         }
 
         ApiHelper::loadServices($container);
+    }
+
+    private function assertProcessRepositoryParametersAreValid(array $config): void
+    {
+        if (!isset($config['process_repository']['parameters'])) {
+            return;
+        }
+        foreach ($config['process_repository']['parameters'] as $key => $value) {
+            Assertion::eq($key, $config['process_repository']['name'], 'You cannot set parameters for a process repository you are not using');
+        }
     }
 
 }
