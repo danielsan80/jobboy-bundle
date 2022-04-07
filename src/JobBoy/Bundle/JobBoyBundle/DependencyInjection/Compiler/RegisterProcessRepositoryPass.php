@@ -38,6 +38,10 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
     protected function loadInMemoryProcessRepository(ContainerBuilder $container)
     {
+        if (!$container->hasParameter(self::PROCESS_REPOSITORY_SERVICE_ID)) {
+            return;
+        }
+
         $serviceId = $container->getParameter(self::PROCESS_REPOSITORY_SERVICE_ID);
 
         if ($serviceId === 'in_memory') {
@@ -55,6 +59,10 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
     protected function loadDoctrineProcessRepository(ContainerBuilder $container)
     {
+        if (!$container->hasParameter(self::PROCESS_REPOSITORY_SERVICE_ID)) {
+            return;
+        }
+
         if (!class_exists('JobBoy\Process\Domain\Repository\Infrastructure\Doctrine\ProcessRepository')) {
             return;
         }
@@ -88,6 +96,10 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
     protected function loadRedisProcessRepository(ContainerBuilder $container)
     {
+        if (!$container->hasParameter(self::PROCESS_REPOSITORY_SERVICE_ID)) {
+            return;
+        }
+
         if (!class_exists('JobBoy\Process\Domain\Repository\Infrastructure\Redis\ProcessRepository')) {
             return;
         }
@@ -133,6 +145,10 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
     protected function createProcessRepositoryAlias(ContainerBuilder $container)
     {
+        if (!$container->hasParameter(self::PROCESS_REPOSITORY_SERVICE_ID)) {
+            return;
+        }
+
         $serviceId = $container->getParameter(self::PROCESS_REPOSITORY_SERVICE_ID);
 
         CompilerPassUtil::assertDefinitionImplementsInterface($container, $serviceId, ProcessRepositoryInterface::class);

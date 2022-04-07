@@ -8,11 +8,9 @@ use DD\Product\Bundle\DDProductBundle\DependencyInjection\DDProductExtension;
 use DD\Product\Domain\Product\Facade\Factory\ProductFactory;
 use DD\Product\Domain\Property\Model\Provider\PropertyProvider;
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\JobBoyExtension;
-use JobBoy\Process\Domain\Repository\Infrastructure\Redis\ProcessRepository as RedisProcessRepository;
-use JobBoy\Process\Domain\Repository\ProcessRepositoryInterface;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
 
 class JobBoyExtensionTest extends AbstractExtensionTestCase
 {
@@ -113,5 +111,115 @@ class JobBoyExtensionTest extends AbstractExtensionTestCase
             ]
         ]);
     }
+
+    /**
+     * @test
+     */
+    public function it_can_manage_process_repository_as_service_id()
+    {
+        $this->load([
+            'process_repository' => [
+                'name' => 'a_process_repository.service_id',
+            ]
+        ]);
+
+        $this->assertContainerBuilderHasParameter('jobboy.process_repository.service_id', 'a_process_repository.service_id');
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_manage_instance_code()
+    {
+        $this->load([
+            'instance_code' => 'an_instance_code',
+            'process_repository' => [
+                'name' => 'a_process_repository.service_id',
+            ]
+        ]);
+
+        $this->assertContainerBuilderHasParameter('jobboy.instance_code', 'an_instance_code');
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_manage_instance_code_using_default_value()
+    {
+        $this->load([
+            'process_repository' => [
+                'name' => 'a_process_repository.service_id',
+            ]
+        ]);
+
+        $this->assertContainerBuilderHasParameter('jobboy.instance_code', null);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_manage_process_class()
+    {
+        $this->load([
+            'process_class' => 'Path\To\Process',
+            'process_repository' => [
+                'name' => 'a_process_repository.service_id',
+            ]
+        ]);
+
+        $this->assertContainerBuilderHasParameter('jobboy.process.class', 'Path\To\Process');
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_manage_process_class_using_default_value()
+    {
+        $this->load([
+            'process_repository' => [
+                'name' => 'a_process_repository.service_id',
+            ]
+        ]);
+
+        $this->expectNotToPerformAssertions();
+
+        try {
+            $this->container->getParameter('jobboy.process.class');
+            $this->fail('Parameter "jobboy.process.class" should not be set');
+        } catch (ParameterNotFoundException $e) {
+        }
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_manage_api()
+    {
+        $this->load([
+            'api' => [
+                'required_role' => 'ROLE_API',
+            ],
+            'process_repository' => [
+                'name' => 'a_process_repository.service_id',
+            ]
+        ]);
+
+        $this->assertContainerBuilderHasParameter('jobboy.api.required_role', 'ROLE_API');
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_manage_api_using_default_value()
+    {
+        $this->load([
+            'process_repository' => [
+                'name' => 'a_process_repository.service_id',
+            ]
+        ]);
+
+        $this->assertContainerBuilderHasParameter('jobboy.api.required_role', 'ROLE_JOBBOY');
+    }
+
 
 }
