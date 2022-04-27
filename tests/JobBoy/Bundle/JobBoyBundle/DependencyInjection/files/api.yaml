@@ -1,0 +1,4 @@
+job_boy:
+  api:
+    required_role: ROLE_API
+  process_repository: a_process_repository

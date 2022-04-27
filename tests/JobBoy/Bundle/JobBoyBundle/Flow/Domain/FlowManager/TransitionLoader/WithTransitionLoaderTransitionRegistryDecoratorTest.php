@@ -1,16 +1,15 @@
 <?php
 
-namespace Tests\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader;
+namespace Tests\JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader;
 
-use JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\RegisterTransitionSetProvidersTransitionLoaderDecorator;
+use JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\TransitionLoader\WithTransitionLoaderTransitionRegistryDecorator;
 use JobBoy\Flow\Domain\FlowManager\DefaultTransitionRegistry;
 use JobBoy\Flow\Domain\FlowManager\TransitionLoader\DefaultTransitionLoader;
-use JobBoy\Flow\Domain\FlowManager\TransitionLoader\TransitionLoader;
+use JobBoy\Flow\Domain\FlowManager\TransitionRegistry;
 use PHPUnit\Framework\TestCase;
 
-class RegisterTransitionSetProvidersTransitionLoaderDecoratorTest extends TestCase
+class WithTransitionLoaderTransitionRegistryDecoratorTest extends TestCase
 {
-
     /**
      * @test
      */
@@ -19,8 +18,8 @@ class RegisterTransitionSetProvidersTransitionLoaderDecoratorTest extends TestCa
         $transitionRegistry = new DefaultTransitionRegistry();
         $transitionLoader = new DefaultTransitionLoader($transitionRegistry);
         $this->assertInstanceOf(
-            TransitionLoader::class,
-            new RegisterTransitionSetProvidersTransitionLoaderDecorator($transitionLoader),
+            TransitionRegistry::class,
+            new WithTransitionLoaderTransitionRegistryDecorator($transitionRegistry, $transitionLoader),
             'You need a decorator (not only an adapter) because of the DIC service loading strategy'
         );
     }
