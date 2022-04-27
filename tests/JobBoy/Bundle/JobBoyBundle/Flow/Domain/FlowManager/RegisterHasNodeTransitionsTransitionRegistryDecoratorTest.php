@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Bundle\JobBoyBundle\Flow\Domain\FlowManager;
+namespace Tests\JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager;
 
 use JobBoy\Bundle\JobBoyBundle\Flow\Domain\FlowManager\RegisterHasNodeTransitionsTransitionRegistryDecorator;
 use JobBoy\Flow\Domain\FlowManager\DefaultTransitionRegistry;

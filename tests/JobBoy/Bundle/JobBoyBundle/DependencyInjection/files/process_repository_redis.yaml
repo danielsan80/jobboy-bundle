@@ -1,0 +1,5 @@
+job_boy:
+  process_repository:
+    name: redis
+    host: localhost
+    namespace: jobboy
