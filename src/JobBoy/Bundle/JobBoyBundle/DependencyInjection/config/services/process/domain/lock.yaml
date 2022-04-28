@@ -1,7 +1,7 @@
 services:
 
   JobBoy\Process\Domain\Lock\LockFactoryInterface:
-    alias: JobBoy\Process\Domain\Lock\Infrastructure\Symfony\LockFactory
+    alias: JobBoy\Process\Domain\Lock\Infrastructure\Filesystem\LockFactory
 
 
   JobBoy\Process\Domain\Lock\Infrastructure\Filesystem\LockFactory:
