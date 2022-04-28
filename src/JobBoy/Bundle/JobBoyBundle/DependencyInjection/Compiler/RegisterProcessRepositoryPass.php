@@ -5,6 +5,8 @@ namespace JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler;
 
 use Assert\Assertion;
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Compiler\Util\CompilerPassUtil;
+use JobBoy\Bundle\JobBoyBundle\Drivers\Doctrine\DoctrineDriverHelper;
+use JobBoy\Bundle\JobBoyBundle\Drivers\Redis\RedisDriverHelper;
 use JobBoy\Process\Domain\Entity\Infrastructure\TouchCallback\HydratableProcess as TouchCallbackHydratableProcess;
 use JobBoy\Process\Domain\Entity\Infrastructure\TouchCallback\Process as TouchCallbackProcess;
 use JobBoy\Process\Domain\Entity\Process;
@@ -12,11 +14,9 @@ use JobBoy\Process\Domain\Repository\Infrastructure\Doctrine\ProcessRepository a
 use JobBoy\Process\Domain\Repository\Infrastructure\InMemory\ProcessRepository as InMemoryProcessRepository;
 use JobBoy\Process\Domain\Repository\Infrastructure\Redis\ProcessRepository as RedisProcessRepository;
 use JobBoy\Process\Domain\Repository\ProcessRepositoryInterface;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
  * I'm not sure, I don't remember. I think we are doing this in a CompilePass instead doing it
@@ -68,7 +68,7 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
             return;
         }
 
-        if (!class_exists(DoctrineProcessRepository::class)) {
+        if (!DoctrineDriverHelper::hasDriver()) {
             return;
         }
 
@@ -92,11 +92,7 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
         $this->setProcessClass($container, TouchCallbackHydratableProcess::class);
 
-        $locator = new FileLocator(__DIR__ . '/../../Resources/config/process_repositories');
-
-        $loader = new YamlFileLoader($container, $locator);
-
-        $loader->load('doctrine.yaml');
+        DoctrineDriverHelper::loadServices($container);
     }
 
     protected function loadRedisProcessRepository(ContainerBuilder $container)
@@ -105,7 +101,7 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
             return;
         }
 
-        if (!class_exists(RedisProcessRepository::class)) {
+        if (!RedisDriverHelper::hasDriver()) {
             return;
         }
 
@@ -133,11 +129,7 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
         $this->setProcessClass($container, TouchCallbackProcess::class);
 
-        $locator = new FileLocator(__DIR__ . '/../../Resources/config/process_repositories');
-
-        $loader = new YamlFileLoader($container, $locator);
-
-        $loader->load('redis.yaml');
+        RedisDriverHelper::loadServices($container);
     }
 
     protected function setProcessClassIfMissing(ContainerBuilder $container)
@@ -158,7 +150,6 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
 
         $container->setAlias(ProcessRepositoryInterface::class, new Alias($serviceId, true));
     }
-
 
 
     protected function setProcessClass(ContainerBuilder $container, string $processClass)

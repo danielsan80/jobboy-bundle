@@ -631,12 +631,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy-driver-doctrine.git",
-                "reference": "a25de803ee0e2819e42ceb0243762cf5611fc66c"
+                "reference": "9f265dacd9fc6935f4838e6845a091225bdb05d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy-driver-doctrine/zipball/a25de803ee0e2819e42ceb0243762cf5611fc66c",
-                "reference": "a25de803ee0e2819e42ceb0243762cf5611fc66c",
+                "url": "https://api.github.com/repos/danielsan80/jobboy-driver-doctrine/zipball/9f265dacd9fc6935f4838e6845a091225bdb05d3",
+                "reference": "9f265dacd9fc6935f4838e6845a091225bdb05d3",
                 "shasum": ""
             },
             "require": {
@@ -678,10 +678,10 @@
             ],
             "description": "Doctrine Driver for dansan/jobboy",
             "support": {
-                "source": "https://github.com/danielsan80/jobboy-driver-doctrine/tree/0.0.0",
+                "source": "https://github.com/danielsan80/jobboy-driver-doctrine/tree/0.0.2",
                 "issues": "https://github.com/danielsan80/jobboy-driver-doctrine/issues"
             },
-            "time": "2022-04-28T09:57:15+00:00"
+            "time": "2022-04-28T12:54:30+00:00"
         },
         {
             "name": "dansan/jobboy-driver-redis",
@@ -689,12 +689,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy-driver-redis.git",
-                "reference": "e619c277eb122d4a541cc5ec563e952f1a403fac"
+                "reference": "238346000a2e4ba506504cf81b3a4e5a1a1c9c82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy-driver-redis/zipball/e619c277eb122d4a541cc5ec563e952f1a403fac",
-                "reference": "e619c277eb122d4a541cc5ec563e952f1a403fac",
+                "url": "https://api.github.com/repos/danielsan80/jobboy-driver-redis/zipball/238346000a2e4ba506504cf81b3a4e5a1a1c9c82",
+                "reference": "238346000a2e4ba506504cf81b3a4e5a1a1c9c82",
                 "shasum": ""
             },
             "require": {
@@ -735,10 +735,10 @@
             ],
             "description": "Redis Driver for dansan/jobboy",
             "support": {
-                "source": "https://github.com/danielsan80/jobboy-driver-redis/tree/0.0.0",
+                "source": "https://github.com/danielsan80/jobboy-driver-redis/tree/0.0.1",
                 "issues": "https://github.com/danielsan80/jobboy-driver-redis/issues"
             },
-            "time": "2022-04-28T10:00:40+00:00"
+            "time": "2022-04-28T12:47:22+00:00"
         },
         {
             "name": "dansan/jobboy-test-pack",

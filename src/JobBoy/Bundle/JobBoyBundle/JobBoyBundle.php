@@ -4,7 +4,6 @@ namespace JobBoy\Bundle\JobBoyBundle;
 
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\Helper\CompilerPassAdder as MainCompilerPassAdder;
 use JobBoy\Bundle\JobBoyBundle\DependencyInjection\JobBoyExtension;
-use JobBoy\Bundle\JobBoyBundle\Drivers\Redis\RedisDriverHelper;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -33,9 +32,6 @@ class JobBoyBundle extends Bundle
 
     private function buildDrivers(ContainerBuilder $containerBuilder): void
     {
-        if (RedisDriverHelper::hasDriver()) {
-            RedisDriverHelper::buildContainer($containerBuilder);
-        }
     }
 
 }
