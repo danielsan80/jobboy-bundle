@@ -34,7 +34,7 @@ class JobBoyBundle extends Bundle
     private function buildDrivers(ContainerBuilder $containerBuilder): void
     {
         if (RedisDriverHelper::hasDriver()) {
-            RedisDriverHelper::buildContainer($containerBuilder);
+            RedisDriverHelper::loadServices($containerBuilder);
         }
     }
 
