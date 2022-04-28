@@ -88,7 +88,7 @@ class JobBoyExtension extends Extension
     protected function loadServices(ContainerBuilder $container): void
     {
 
-        $locator = new FileLocator(__DIR__ . '/../Resources/config');
+        $locator = new FileLocator(__DIR__ . '/config');
 
         $loader = new DirectoryLoader($container, $locator);
         $resolver = new LoaderResolver([
