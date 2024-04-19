@@ -12,7 +12,7 @@ class RegisterEventListenersPass implements CompilerPassInterface
     const EVENT_BUS_ID = EventBusInterface::class;
     const TAG = 'jobboy.process.event_listener';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->has(self::EVENT_BUS_ID)) {
             return;

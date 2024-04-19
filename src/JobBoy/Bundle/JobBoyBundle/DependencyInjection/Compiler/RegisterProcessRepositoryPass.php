@@ -28,7 +28,7 @@ class RegisterProcessRepositoryPass implements CompilerPassInterface
     const PROCESS_REPOSITORY_SERVICE_ID = 'jobboy.process_repository.service_id';
     const PROCESS_CLASS = 'jobboy.process.class';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
 
         $this->loadInMemoryProcessRepository($container);

@@ -18,7 +18,7 @@ class RegisterHasNodeTransitionsPass implements CompilerPassInterface
     const TAG_NODE_CHANGE = 'jobboy.flow.node_change';
     const TAG_EXIT = 'jobboy.flow.exit';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->has(self::REGISTRY)) {
             return;
