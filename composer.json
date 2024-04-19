@@ -18,8 +18,8 @@
         "dansan/jobboy-driver-redis": "^0.0||^1.0",
         "dansan/jobboy-driver-doctrine": "^0.0||^1.0",
         "dansan/jobboy-test-pack": "*",
-        "matthiasnoback/symfony-dependency-injection-test": "^4.3||^5.0",
-        "symfony/framework-bundle": "^4.0||^5.0"
+        "matthiasnoback/symfony-dependency-injection-test": "^4.3||^5.0||^6.0||^7.0",
+        "symfony/framework-bundle": "^4.0||^5.0||^6.0||^7.0"
     },
     "config": {
         "preferred-install": {
