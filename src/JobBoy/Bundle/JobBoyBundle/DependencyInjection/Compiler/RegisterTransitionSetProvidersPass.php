@@ -13,7 +13,7 @@ class RegisterTransitionSetProvidersPass implements CompilerPassInterface
     const REGISTRY = RegisterTransitionSetProvidersTransitionLoaderDecorator::class;
     const TAG = 'jobboy.flow.transition_set_provider';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->has(self::REGISTRY)) {
             return;

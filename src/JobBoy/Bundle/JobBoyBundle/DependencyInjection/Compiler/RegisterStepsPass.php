@@ -15,7 +15,7 @@ class RegisterStepsPass implements CompilerPassInterface
     const REGISTRY = HasStepDataStepRegistryDecorator::class;
     const TAG = 'jobboy.step';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->has(self::REGISTRY)) {
             return;

@@ -16,7 +16,7 @@ class RegisterProcessHandlersPass implements CompilerPassInterface
     const REGISTRY = ProcessHandlerRegistry::class;
     const TAG = 'jobboy.process_handler';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->has(self::REGISTRY)) {
             return;
