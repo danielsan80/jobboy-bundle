@@ -15,8 +15,8 @@
     },
     "require-dev": {
         "dansan/fixture-handler": "*",
-        "dansan/jobboy-driver-redis": "*@dev",
-        "dansan/jobboy-driver-doctrine": "*@dev",
+        "dansan/jobboy-driver-redis": "^0.0",
+        "dansan/jobboy-driver-doctrine": "^0.0",
         "dansan/jobboy-test-pack": "*",
         "matthiasnoback/symfony-dependency-injection-test": "^4.3",
         "symfony/framework-bundle": "^4.0"
@@ -42,20 +42,12 @@
         "branch-alias": {
             "dev-0.2": "0.2.x-dev",
             "dev-0.3": "0.3.x-dev",
-            "dev-master": "0.4.x-dev"
+            "dev-0.4": "0.4.x-dev",
+            "dev-master": "1.0.x-dev"
         }
     },
 
     "minimum-stability": "stable",
 
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:danielsan80/jobboy-driver-redis.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:danielsan80/jobboy-driver-doctrine.git"
-        }
-    ]
+    "repositories": []
 }
