@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class JobBoyBundle extends Bundle
 {
 
-    public function build(ContainerBuilder $containerBuilder)
+    public function build(ContainerBuilder $containerBuilder): void
     {
         parent::build($containerBuilder);
 
@@ -19,7 +19,7 @@ class JobBoyBundle extends Bundle
 
     }
 
-    protected function getContainerExtensionClass()
+    protected function getContainerExtensionClass(): string
     {
         return JobBoyExtension::class;
     }
